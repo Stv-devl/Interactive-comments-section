@@ -3,46 +3,20 @@
 /********************************************************************/
 
 //Primary
-$white: hsla(0, 0%, 100%, 1);
-$BrightBlue: hsl(220, 98%, 61%);
+$Moderateblue: hsl(
+  238,
+  40%,
+  52%
+); // reply, edit, like number display, answer to, you background, button background
+$SoftRed: hsl(358, 79%, 66%); //delete
+$Lightgrayishblue: hsl(239, 57%, 85%); //like display container, hover button
+$Palered: hsl(357, 100%, 86%); //delete hover
 
 //Neutral
-//Light Theme
-$backgroundLight: hsla(0, 0%, 98%, 1); //background
-$backgroundTodoLight: hsla(0, 0%, 100%, 1); //background todo
-$textTodoCompleteLight: hsla(233, 11%, 84%, 1); //text todo complete
-$textTodoFooterLight: hsla(235, 9%, 61%, 1); //text todo footer
-$textTodoLight: hsla(235, 19%, 35%, 1); //text todo
-$textHoverLight: hsla(235, 19%, 35%, 1); //text Hover
-$BoxShadowLight: rgba(194, 195, 214, 0.5); //box Shadow
+$Darkblue: hsl(212, 24%, 26%); //profile name
+$GrayishBlue: hsl(211, 10%, 45%); //comment text, comment send since, input text
+$Lightgray: hsl(223, 19%, 93%); // input border
+$Verylightgray: hsl(228, 33%, 97%); //background
+$White: hsl(0, 0%, 100%); //comment and answer background, button text
 
-// Dark Theme
-$backgroundDark: hsl(235, 21%, 11%); //background
-$backgroundTodoDark: hsla(235, 25%, 19%, 1); //background todo
-$textTodoCompleteDark: hsla(233, 14%, 35%, 1); //text todo complete
-$textTodoFooterDark: hsla(235, 16%, 42%, 1); //text todo footer
-$textTodoDark: hsla(235, 39%, 85%, 1); //text todo
-$textHoverDark: hsla(236, 32%, 92%, 1); //text Hover
-$BoxShadowDark: rgba(0, 0, 0, 0.5); //box Shadow
-
-/***************************Setting body switch***************************/
-
-.light {
-  --background: #{$backgroundLight};
-  --backgroundTodo: #{$backgroundTodoLight};
-  --textTodoComplete: #{$textTodoCompleteLight};
-  --textTodoFooter: #{$textTodoFooterLight};
-  --textTodo: #{$textTodoLight};
-  --textTodoHover: #{$textHoverLight};
-  --BoxShadow: #{$BoxShadowLight};
-}
-
-.dark {
-  --background: #{$backgroundDark};
-  --backgroundTodo: #{$backgroundTodoDark};
-  --textTodoComplete: #{$textTodoCompleteDark};
-  --textTodoFooter: #{$textTodoFooterDark};
-  --textTodo: #{$textTodoDark};
-  --textTodoHover: #{$textHoverDark};
-  --BoxShadow: #{$BoxShadowDark};
-}
+//hover
