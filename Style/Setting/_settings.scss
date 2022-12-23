@@ -47,6 +47,12 @@ span {
   color: $Moderateblue;
   font-weight: 500;
 }
+
+.you {
+  font-size: 13px;
+  font-weight: 500;
+  color: $White;
+}
 /***************************Setting mixin***************************/
 
 @mixin center {

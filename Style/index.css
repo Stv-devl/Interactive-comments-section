@@ -48,6 +48,12 @@ span {
   font-weight: 500;
 }
 
+.you {
+  font-size: 13px;
+  font-weight: 500;
+  color: hsl(0deg, 0%, 100%);
+}
+
 /***************************Setting mixin***************************/
 /***************************button***************************/
 button {
@@ -176,6 +182,12 @@ main .comment_answer_container .comment_wrapper .comment .comment_body .comment_
   width: 32px;
   height: 32px;
   border-radius: 100%;
+}
+main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .comment_profile .you {
+  width: 36px;
+  height: 19px;
+  background-color: hsl(238deg, 40%, 52%);
+  text-align: center;
 }
 main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .modification_wrapper {
   display: flex;
