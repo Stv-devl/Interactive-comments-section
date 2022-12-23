@@ -187,6 +187,36 @@ main {
               fill: $Lightgrayishblue;
             }
           }
+          .modification_wrapper {
+            @include row;
+            align-items: center;
+            gap: 15px;
+
+            .comment_delete {
+              @include row;
+              gap: 8px;
+              cursor: pointer;
+
+              &:hover .text_delete {
+                color: $Palered;
+              }
+              &:hover .delete path {
+                fill: $Palered;
+              }
+            }
+            .comment_edit {
+              @include row;
+              gap: 8px;
+              cursor: pointer;
+
+              &:hover .text_edit {
+                color: $Lightgrayishblue;
+              }
+              &:hover .edit path {
+                fill: $Lightgrayishblue;
+              }
+            }
+          }
         }
 
         /************************************************************************/
@@ -207,13 +237,32 @@ main {
       width: 730px;
       height: 100%;
 
+      /********************Media********************/
+      @media screen and (max-width: 770px) {
+        justify-content: flex-start;
+        width: 343px;
+      }
+      /*********************************************/
+
       .border {
         border-left: 2px solid $Lightgray;
         margin-right: 43px;
         margin-bottom: 20px;
+
+        /********************Media********************/
+        @media screen and (max-width: 770px) {
+          margin-right: 13px;
+        }
+        /*********************************************/
       }
       .answer_wrapper {
         width: 88%;
+
+        /********************Media********************/
+        @media screen and (max-width: 770px) {
+          width: 100%;
+        }
+        /*********************************************/
       }
     }
   }
@@ -227,6 +276,32 @@ main {
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 24px;
+
+    /********************Media********************/
+    @media screen and (max-width: 770px) {
+      display: grid;
+      grid-template-columns: 150px 150px;
+      grid-template-rows: 96px 48px;
+      justify-content: space-between;
+      align-items: center;
+      row-gap: 11px;
+      column-gap: 57px;
+      grid-template-areas:
+        "txt txt"
+        "img btn";
+      padding: 16px;
+
+      img {
+        grid-area: img;
+      }
+      textarea {
+        grid-area: txt;
+      }
+      button {
+        grid-area: btn;
+      }
+    }
+    /*******************************************/
 
     img {
       width: 32px;
@@ -243,6 +318,12 @@ main {
       padding: 12px 24px;
       resize: none;
       cursor: pointer;
+
+      /********************Media********************/
+      @media screen and (max-width: 770px) {
+        width: 311px;
+      }
+      /*********************************************/
 
       &:hover {
         border-color: $Moderateblue;

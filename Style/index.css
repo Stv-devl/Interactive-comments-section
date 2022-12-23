@@ -48,7 +48,7 @@ span {
   font-weight: 500;
 }
 
-/***************************Setting mixxin***************************/
+/***************************Setting mixin***************************/
 /***************************button***************************/
 button {
   border: none;
@@ -276,6 +276,36 @@ main .comment_answer_container .comment_wrapper .comment .comment_footer .commen
 main .comment_answer_container .comment_wrapper .comment .comment_footer .comment_reply:hover .reply path {
   fill: hsl(239deg, 57%, 85%);
 }
+main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper .comment_delete {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  cursor: pointer;
+}
+main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper .comment_delete:hover .text_delete {
+  color: hsl(357deg, 100%, 86%);
+}
+main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper .comment_delete:hover .delete path {
+  fill: hsl(357deg, 100%, 86%);
+}
+main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper .comment_edit {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  cursor: pointer;
+}
+main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper .comment_edit:hover .text_edit {
+  color: hsl(239deg, 57%, 85%);
+}
+main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper .comment_edit:hover .edit path {
+  fill: hsl(239deg, 57%, 85%);
+}
 main .comment_answer_container .reply_container {
   display: none;
 }
@@ -285,14 +315,36 @@ main .comment_answer_container .answer_container {
   justify-content: flex-end;
   width: 730px;
   height: 100%;
+  /********************Media********************/
+  /*********************************************/
+}
+@media screen and (max-width: 770px) {
+  main .comment_answer_container .answer_container {
+    justify-content: flex-start;
+    width: 343px;
+  }
 }
 main .comment_answer_container .answer_container .border {
   border-left: 2px solid hsl(223deg, 19%, 93%);
   margin-right: 43px;
   margin-bottom: 20px;
+  /********************Media********************/
+  /*********************************************/
+}
+@media screen and (max-width: 770px) {
+  main .comment_answer_container .answer_container .border {
+    margin-right: 13px;
+  }
 }
 main .comment_answer_container .answer_container .answer_wrapper {
   width: 88%;
+  /********************Media********************/
+  /*********************************************/
+}
+@media screen and (max-width: 770px) {
+  main .comment_answer_container .answer_container .answer_wrapper {
+    width: 100%;
+  }
 }
 main .send_container {
   display: flex;
@@ -305,6 +357,31 @@ main .send_container {
   border-radius: 8px;
   margin-bottom: 20px;
   padding: 24px;
+  /********************Media********************/
+  /*******************************************/
+}
+@media screen and (max-width: 770px) {
+  main .send_container {
+    display: grid;
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 96px 48px;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 11px;
+    -moz-column-gap: 57px;
+         column-gap: 57px;
+    grid-template-areas: "txt txt" "img btn";
+    padding: 16px;
+  }
+  main .send_container img {
+    grid-area: img;
+  }
+  main .send_container textarea {
+    grid-area: txt;
+  }
+  main .send_container button {
+    grid-area: btn;
+  }
 }
 main .send_container img {
   width: 32px;
@@ -320,6 +397,13 @@ main .send_container textarea {
   padding: 12px 24px;
   resize: none;
   cursor: pointer;
+  /********************Media********************/
+  /*********************************************/
+}
+@media screen and (max-width: 770px) {
+  main .send_container textarea {
+    width: 311px;
+  }
 }
 main .send_container textarea:hover {
   border-color: hsl(238deg, 40%, 52%);
