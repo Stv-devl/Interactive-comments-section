@@ -23,7 +23,7 @@
               <path
                 d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z"
                 fill="#C5C6EF" /></svg>
-            <div class="comment_number">12</div>
+            <div class="comment_number" id="amyScore"></div>
             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="3" class="comment_minus">
               <path
                 d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z"
@@ -32,10 +32,9 @@
           <div class="comment_body">
             <div class="comment_header">
               <div class="comment_profile">
-                <img class="amyrobson_avatar" src="./Src/images/avatars/image-amyrobson.png"
-                  alt="amyrobson_picture_profile">
-                <p class="profile_id">amyrobson</p>
-                <p>1 month ago</p>
+                <span id="amyAvatar"></span>
+                <p class="profile_id" id="amyID"></p>
+                <p id="amyDate"></p>
               </div>
               <div class="comment_reply">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" class="reply">
@@ -45,9 +44,7 @@
                 <p class="text_reply">Reply</p>
               </div>
             </div>
-            <p class="text amyrobson">Impressive! Though it seems the drag feature could be improved. But overall it
-              looks
-              incredible. You’ve nailed the design and the responsiveness at various breakpoints works really well.</p>
+            <p class="text amyrobson" id="commentAmy"></p>
           </div>
 
           <!-- comment 1 for media -->
@@ -57,7 +54,7 @@
                 <path
                   d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z"
                   fill="#C5C6EF" /></svg>
-              <div class="comment_number">12</div>
+              <div class="amy_comment_media_number" id="amyCommentMediaNbr"></div>
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="3" class="comment_minus">
                 <path
                   d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z"
@@ -74,6 +71,7 @@
         </div>
       </div>
       <div class="reply_container">
+
         <div class="send_container">
           <img class="juliusomo_avatar_answer" src="./Src/images/avatars/image-juliusomo.png"
             alt="juliusomo_picture_profile">
@@ -98,7 +96,7 @@
               <path
                 d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z"
                 fill="#C5C6EF" /></svg>
-            <div class="comment_number">5</div>
+            <div class="comment_number" id="maxScore"></div>
             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="3" class="comment_minus">
               <path
                 d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z"
@@ -107,9 +105,9 @@
           <div class="comment_body">
             <div class="comment_header">
               <div class="comment_profile">
-                <img class="maxblagun_avatar" src="./Src/images/avatars/image-maxblagun.png" <p
-                  class="profile_id">maxblagun</p>
-                <p>2 weeks ago</p>
+                <span id="maxAvatar"></span>
+                <p class="profile_id" id="maxId"></p>
+                <p id="maxDate"></p>
               </div>
               <div class="comment_reply">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" class="reply">
@@ -119,9 +117,7 @@
                 <p class="text_reply">Reply</p>
               </div>
             </div>
-            <p class="text maxblagun">Woah, your project looks awesome! How long have you been coding for? I’m still
-              new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can
-              learn React? Thanks!</p>
+            <p class="text maxblagun" id="maxComment"></p>
           </div>
           <!-- comment 2 for media -->
           <div class="comment_footer">
@@ -130,7 +126,7 @@
                 <path
                   d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z"
                   fill="#C5C6EF" /></svg>
-              <div class="comment_number">12</div>
+              <div class="max_comment_media_number" id="maxCommentMediaNbr"></div>
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="3" class="comment_minus">
                 <path
                   d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z"
@@ -162,7 +158,7 @@
                     <path
                       d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z"
                       fill="#C5C6EF" /></svg>
-                  <div class="comment_number">4</div>
+                  <div class="comment_number" id="ramScore"></div>
                   <svg xmlns="http://www.w3.org/2000/svg" width="11" height="3" class="comment_minus">
                     <path
                       d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z"
@@ -171,10 +167,9 @@
                 <div class="comment_body">
                   <div class="comment_header">
                     <div class="comment_profile">
-                      <img class="maxblagun_avatar" src="./Src/images/avatars/image-ramsesmiron.png"
-                        alt="maxblagun_picture_profile">
-                      <p class="profile_id">ramsesmiron</p>
-                      <p>1 week ago</p>
+                      <span id="ramAvatar"></span>
+                      <p class="profile_id" id="ramId"></p>
+                      <p id="ramDate"></p>
                     </div>
                     <div class="comment_reply">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" class="reply">
@@ -184,11 +179,7 @@
                       <p class="text_reply">Reply</p>
                     </div>
                   </div>
-                  <p class="text maxblagun"> <span> @maxblagun </span>If you’re still new, I’d recommend focusing on the
-                    fundamentals
-                    of
-                    HTML, CSS, and JS before considering React. It’s very tempting to jump ahead but lay a solid
-                    foundation first</p>
+                  <div class="text maxblagun" id="ramComment"></div>
                 </div>
                 <!-- answer 1 for media -->
                 <div class="comment_footer">
@@ -197,7 +188,7 @@
                       <path
                         d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z"
                         fill="#C5C6EF" /></svg>
-                    <div class="comment_number">12</div>
+                    <div class="comment_number" id="ramCommentMediaNbr"></div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="3" class="comment_minus">
                       <path
                         d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z"
@@ -223,7 +214,7 @@
                     <path
                       d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z"
                       fill="#C5C6EF" /></svg>
-                  <div class="comment_number">2</div>
+                  <div class="comment_number" id="julScore"></div>
                   <svg xmlns="http://www.w3.org/2000/svg" width="11" height="3" class="comment_minus">
                     <path
                       d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z"
@@ -232,11 +223,10 @@
                 <div class="comment_body">
                   <div class="comment_header">
                     <div class="comment_profile">
-                      <img class="juliusomo_avatar" src="./Src/images/avatars/image-juliusomo.png"
-                        alt="juliusomo_picture_profile">
-                      <p class="profile_id">juliusomo</p>
+                      <span id="julAvatar"></span>
+                      <p class="profile_id" id="julId"></p>
                       <p class="you">you</p>
-                      <p>2 days ago</p>
+                      <p id="julDate"></p>
                     </div>
                     <div class="modification_wrapper">
                       <div class="comment_delete">
@@ -255,10 +245,7 @@
                       </div>
                     </div>
                   </div>
-                  <p class="text juliusomo"> <span>@ramsesmiron</span>I couldn’t agree more with this. Everything moves
-                    so fast and
-                    it always seems like everyone knows the newest library/framework. But the fundamentals are what stay
-                    constant.</p>
+                  <div id="julComment"></div>
                 </div>
                 <!-- answer 2 for media -->
                 <div class="comment_footer">
@@ -267,7 +254,7 @@
                       <path
                         d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z"
                         fill="#C5C6EF" /></svg>
-                    <div class="comment_number">12</div>
+                    <div class="comment_number" id="julCommentMediaNbr"></div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="3" class="comment_minus">
                       <path
                         d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z"

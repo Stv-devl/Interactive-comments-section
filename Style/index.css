@@ -32,6 +32,8 @@ body {
 }
 
 .comment_number,
+.amy_comment_media_number,
+.max_comment_media_number,
 .text_reply,
 .text_edit {
   color: hsl(238deg, 40%, 52%);
@@ -101,8 +103,6 @@ main {
 main .comment_answer_container {
   width: 100%;
   /********************reply container // intercat with JS********************/
-  /******************** answer container // intercat with JS********************/
-  /*****************************************************************************/
 }
 main .comment_answer_container .comment_wrapper {
   width: 100%;
@@ -178,10 +178,12 @@ main .comment_answer_container .comment_wrapper .comment .comment_body .comment_
   align-items: center;
   gap: 16px;
 }
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .comment_profile img {
+main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .comment_profile span {
   width: 32px;
   height: 32px;
   border-radius: 100%;
+  background-position: center;
+  background-size: 100%;
 }
 main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .comment_profile .you {
   width: 36px;
@@ -252,6 +254,10 @@ main .comment_answer_container .comment_wrapper .comment .comment_body .comment_
     display: none;
   }
 }
+main .comment_answer_container .comment_wrapper .comment .comment_body .text span {
+  color: hsl(238deg, 40%, 52%);
+  font-weight: 500;
+}
 main .comment_answer_container .comment_wrapper .comment .comment_footer {
   display: none;
   /********************Media********************/
@@ -321,44 +327,11 @@ main .comment_answer_container .comment_wrapper .comment .comment_footer .modifi
 main .comment_answer_container .reply_container {
   display: none;
 }
-main .comment_answer_container .answer_container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  width: 730px;
-  height: 100%;
-  /********************Media********************/
-  /*********************************************/
-}
-@media screen and (max-width: 770px) {
-  main .comment_answer_container .answer_container {
-    justify-content: flex-start;
-    width: 343px;
-  }
-}
-main .comment_answer_container .answer_container .border {
-  border-left: 2px solid hsl(223deg, 19%, 93%);
-  margin-right: 43px;
-  margin-bottom: 20px;
-  /********************Media********************/
-  /*********************************************/
-}
-@media screen and (max-width: 770px) {
-  main .comment_answer_container .answer_container .border {
-    margin-right: 13px;
-  }
-}
-main .comment_answer_container .answer_container .answer_wrapper {
-  width: 88%;
-  /********************Media********************/
-  /*********************************************/
-}
-@media screen and (max-width: 770px) {
-  main .comment_answer_container .answer_container .answer_wrapper {
-    width: 100%;
-  }
-}
-main .send_container {
+
+/**********************************************************************/
+/*Reply container*/
+/**********************************************************************/
+.send_container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -373,7 +346,7 @@ main .send_container {
   /*******************************************/
 }
 @media screen and (max-width: 770px) {
-  main .send_container {
+  .send_container {
     display: grid;
     grid-template-columns: 150px 150px;
     grid-template-rows: 96px 48px;
@@ -385,22 +358,22 @@ main .send_container {
     grid-template-areas: "txt txt" "img btn";
     padding: 16px;
   }
-  main .send_container img {
+  .send_container img {
     grid-area: img;
   }
-  main .send_container textarea {
+  .send_container textarea {
     grid-area: txt;
   }
-  main .send_container button {
+  .send_container button {
     grid-area: btn;
   }
 }
-main .send_container img {
+.send_container img {
   width: 32px;
   height: 32px;
   border-radius: 100%;
 }
-main .send_container textarea {
+.send_container textarea {
   width: 506px;
   height: 96px;
   border-radius: 8px;
@@ -413,12 +386,52 @@ main .send_container textarea {
   /*********************************************/
 }
 @media screen and (max-width: 770px) {
-  main .send_container textarea {
+  .send_container textarea {
     width: 311px;
   }
 }
-main .send_container textarea:hover {
+.send_container textarea:hover {
   border-color: hsl(238deg, 40%, 52%);
+}
+
+/******************** answer container // intercat with JS********************/
+/*****************************************************************************/
+.answer_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 730px;
+  height: 100%;
+  /********************Media********************/
+  /*********************************************/
+}
+@media screen and (max-width: 770px) {
+  .answer_container {
+    justify-content: flex-start;
+    width: 343px;
+  }
+}
+.answer_container .border {
+  border-left: 2px solid hsl(223deg, 19%, 93%);
+  margin-right: 43px;
+  margin-bottom: 20px;
+  /********************Media********************/
+  /*********************************************/
+}
+@media screen and (max-width: 770px) {
+  .answer_container .border {
+    margin-right: 13px;
+  }
+}
+.answer_container .answer_wrapper {
+  width: 88%;
+  /********************Media********************/
+  /*********************************************/
+}
+@media screen and (max-width: 770px) {
+  .answer_container .answer_wrapper {
+    width: 100%;
+  }
 }
 
 /*****align footer and set size and color*****/

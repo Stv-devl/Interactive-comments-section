@@ -33,6 +33,8 @@ body {
   font-weight: 500;
 }
 .comment_number,
+.amy_comment_media_number,
+.max_comment_media_number,
 .text_reply,
 .text_edit {
   color: $Moderateblue;
@@ -42,12 +44,10 @@ body {
   color: $SoftRed;
   font-weight: 500;
 }
-
 span {
   color: $Moderateblue;
   font-weight: 500;
 }
-
 .you {
   font-size: 13px;
   font-weight: 500;
