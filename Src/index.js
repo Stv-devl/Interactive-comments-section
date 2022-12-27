@@ -1,17 +1,23 @@
 //Variables
-const ramAnswerTo = document.getElementById("ramAnswerTo");
+const reply = document.querySelectorAll(".comment_reply");
+
+//local storage
+const LocalStorageList = "jsonStorage";
+let storageData = JSON.parse(localStorage.getItem(LocalStorageList));
+
+console.log(storageData);
 
 // getData from Json files
 const getData = async () => {
   const response = await fetch(`data.json`);
   const data = await response.json();
+  saveToLocalstorage(data);
   writeData(data);
 };
 
 getData();
 
 function writeData(data) {
-  console.log(data.comments[1].replies[0]);
   //amy
   amyAvatar.style.backgroundImage = `url(${data.comments[0].user.image.png})`;
   commentAmy.textContent = data.comments[0].content;
@@ -44,14 +50,35 @@ function writeData(data) {
   julScore.textContent = data.comments[1].replies[1].score;
   //jul (you) for media
   julCommentMediaNbr.textContent = data.comments[1].replies[1].score;
+  //jul for
 }
 
-//send to local storage
+//function addReplyData
+function addReplyData() {}
 
+//displayReply
+function displayReply() {}
+
+//function addEditData
+function addEditData() {}
+
+//display edit data
+function displayEdit() {}
+//function deleteData
+function deleteData() {}
 //like score
 
-//reply
+/*************************************Save data to local storage************************************/
+function saveToLocalstorage(data) {
+  localStorage.setItem(LocalStorageList, JSON.stringify(data));
+}
 
-//edit
+/*************************************AddEventListener************************************/
 
-//delete
+//reply button
+reply.forEach((element) => {
+  element.addEventListener("click", (e) => {
+    addReplyData();
+    displayReply();
+  });
+});
