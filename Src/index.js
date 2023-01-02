@@ -1,6 +1,7 @@
 //Variables
 const reply = document.querySelectorAll(".comment_reply");
 const replyContainer = document.querySelectorAll(".replycontainer");
+const answerContainer = document.querySelectorAll(".answer_container");
 
 //local storage
 const LocalStorageList = "jsonStorage";
@@ -19,52 +20,45 @@ const getData = async () => {
 getData();
 
 //data from json
-function writeData(data) {
+function writeData() {
   //amy
-  amyAvatar.style.backgroundImage = `url(${data.comments[0].user.image.png})`;
-  commentAmy.textContent = data.comments[0].content;
-  amyDate.textContent = data.comments[0].createdAt;
-  amyID.textContent = data.comments[0].user.username;
-  amyScore.textContent = data.comments[0].score;
+  amyAvatar.style.backgroundImage = `url(${storageData.comments[0].user.image.png})`;
+  commentAmy.textContent = storageData.comments[0].content;
+  amyDate.textContent = storageData.comments[0].createdAt;
+  amyID.textContent = storageData.comments[0].user.username;
+  amyScore.textContent = storageData.comments[0].score;
   //amy for media
-  amyCommentMediaNbr.textContent = data.comments[0].score;
+  amyCommentMediaNbr.textContent = storageData.comments[0].score;
   //max
-  maxAvatar.style.backgroundImage = `url(${data.comments[1].user.image.png})`;
-  maxComment.textContent = data.comments[1].content;
-  maxDate.textContent = data.comments[1].createdAt;
-  maxId.textContent = data.comments[1].user.username;
-  maxScore.textContent = data.comments[1].score;
+  maxAvatar.style.backgroundImage = `url(${storageData.comments[1].user.image.png})`;
+  maxComment.textContent = storageData.comments[1].content;
+  maxDate.textContent = storageData.comments[1].createdAt;
+  maxId.textContent = storageData.comments[1].user.username;
+  maxScore.textContent = storageData.comments[1].score;
   //max for media
-  maxCommentMediaNbr.textContent = data.comments[1].score;
+  maxCommentMediaNbr.textContent = storageData.comments[1].score;
   //ram
-  ramAvatar.style.backgroundImage = `url(${data.comments[1].replies[0].user.image.png})`;
-  ramComment.innerHTML = `<p><span>@${data.comments[1].replies[0].replyingTo}</span> ${data.comments[1].replies[0].content}</p>`;
-  ramDate.textContent = data.comments[1].replies[0].createdAt;
-  ramId.textContent = data.comments[1].replies[0].user.username;
-  ramScore.textContent = data.comments[1].replies[0].score;
+  ramAvatar.style.backgroundImage = `url(${storageData.comments[1].replies[0].user.image.png})`;
+  ramComment.innerHTML = `<p><span>@${storageData.comments[1].replies[0].replyingTo}</span> ${storageData.comments[1].replies[0].content}</p>`;
+  ramDate.textContent = storageData.comments[1].replies[0].createdAt;
+  ramId.textContent = storageData.comments[1].replies[0].user.username;
+  ramScore.textContent = storageData.comments[1].replies[0].score;
   //ram for media
-  ramCommentMediaNbr.textContent = data.comments[1].replies[0].score;
+  ramCommentMediaNbr.textContent = storageData.comments[1].replies[0].score;
   //jul (you)
-  julAvatar.style.backgroundImage = `url(${data.comments[1].replies[1].user.image.png})`;
-  julComment.innerHTML = `<p><span>@${data.comments[1].replies[1].replyingTo}</span> ${data.comments[1].replies[0].content}</p>`;
-  julDate.textContent = data.comments[1].replies[1].createdAt;
-  julId.textContent = data.comments[1].replies[1].user.username;
-  julScore.textContent = data.comments[1].replies[1].score;
+  julAvatar.style.backgroundImage = `url(${storageData.comments[1].replies[1].user.image.png})`;
+  julComment.innerHTML = `<p><span>@${storageData.comments[1].replies[1].replyingTo}</span> ${storageData.comments[1].replies[0].content}</p>`;
+  julDate.textContent = storageData.comments[1].replies[1].createdAt;
+  julId.textContent = storageData.comments[1].replies[1].user.username;
+  julScore.textContent = storageData.comments[1].replies[1].score;
   //jul (you) for media
-  julCommentMediaNbr.textContent = data.comments[1].replies[1].score;
+  julCommentMediaNbr.textContent = storageData.comments[1].replies[1].score;
   //jul for
 }
 
 //function addReplyData
-function addReplyData() {
-  const btn = document.querySelectorAll(".btn");
-
-  btn.forEach((element) => {
-    element.addEventListener("click", (e) => {
-      const inputData =
-        element.parentElement.children[1].children[0].children[0].value;
-    });
-  });
+function writeReply() {
+  /*  return { id: id.toString(), name: input.value, completed: false };*/
 }
 
 //displayReply
@@ -81,7 +75,20 @@ function displayReply(displayAnswer, displayId) {
 </div>`;
   displayAnswer.classList.toggle("activate");
 
-  addReplyData();
+  const btn = document.querySelectorAll(".btn");
+
+  //when click on reply
+  btn.forEach((element) => {
+    element.addEventListener("click", () => {
+      const inputData =
+        element.parentElement.children[1].children[0].children[0].value;
+      const answerData =
+        element.parentElement.parentElement.parentElement.children[2];
+      answerData.classList.add("active");
+      displayAnswer.classList.remove("activate");
+      writeReply(inputData);
+    });
+  });
 }
 
 //function addEditData
@@ -111,5 +118,3 @@ reply.forEach((element) => {
     displayReply(displayAnswer, displayId);
   });
 });
-
-//button for send reply to comment
