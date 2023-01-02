@@ -18,6 +18,7 @@ const getData = async () => {
 
 getData();
 
+//data from json
 function writeData(data) {
   //amy
   amyAvatar.style.backgroundImage = `url(${data.comments[0].user.image.png})`;
@@ -55,21 +56,32 @@ function writeData(data) {
 }
 
 //function addReplyData
-function addReplyData() {}
+function addReplyData() {
+  const btn = document.querySelectorAll(".btn");
+
+  btn.forEach((element) => {
+    element.addEventListener("click", (e) => {
+      const inputData =
+        element.parentElement.children[1].children[0].children[0].value;
+    });
+  });
+}
 
 //displayReply
-function displayReply(answer) {
-  answer.innerHTML = `<div class="send_container">
+function displayReply(displayAnswer, displayId) {
+  displayAnswer.innerHTML = `<div class="send_container">
   <img class="juliusomo_avatar_answer" src="./Src/images/avatars/image-juliusomo.png"
     alt="juliusomo_picture_profile">
   <form>
     <div class="input-wrapper">
-      <textarea type="text" class="comment-input" placeholder="Add a comment..."></textarea>
+      <textarea type="text" class="comment-input">@${displayId}</textarea>
     </div>
   </form>
-  <button>reply</button>
+  <button class="btn" type="button">reply</button>
 </div>`;
-  answer.classList.toggle("activate");
+  displayAnswer.classList.toggle("activate");
+
+  addReplyData();
 }
 
 //function addEditData
@@ -88,13 +100,16 @@ function saveToLocalstorage(data) {
 
 /*************************************AddEventListener************************************/
 
-//reply button
+//reply to comment button
 reply.forEach((element) => {
   element.addEventListener("click", (e) => {
     const body =
       element.parentElement.parentElement.parentElement.parentElement
         .parentElement;
-    const answer = body.children[1];
-    displayReply(answer);
+    const displayAnswer = body.children[1];
+    const displayId = element.parentElement.children[0].children[1].textContent;
+    displayReply(displayAnswer, displayId);
   });
 });
+
+//button for send reply to comment
