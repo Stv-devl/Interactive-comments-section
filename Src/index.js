@@ -1,5 +1,6 @@
 //Variables
 const reply = document.querySelectorAll(".comment_reply");
+const replyContainer = document.querySelectorAll(".replycontainer");
 
 //local storage
 const LocalStorageList = "jsonStorage";
@@ -57,7 +58,19 @@ function writeData(data) {
 function addReplyData() {}
 
 //displayReply
-function displayReply() {}
+function displayReply(answer) {
+  answer.innerHTML = `<div class="send_container">
+  <img class="juliusomo_avatar_answer" src="./Src/images/avatars/image-juliusomo.png"
+    alt="juliusomo_picture_profile">
+  <form>
+    <div class="input-wrapper">
+      <textarea type="text" class="comment-input" placeholder="Add a comment..."></textarea>
+    </div>
+  </form>
+  <button>reply</button>
+</div>`;
+  answer.classList.toggle("activate");
+}
 
 //function addEditData
 function addEditData() {}
@@ -78,7 +91,10 @@ function saveToLocalstorage(data) {
 //reply button
 reply.forEach((element) => {
   element.addEventListener("click", (e) => {
-    addReplyData();
-    displayReply();
+    const body =
+      element.parentElement.parentElement.parentElement.parentElement
+        .parentElement;
+    const answer = body.children[1];
+    displayReply(answer);
   });
 });

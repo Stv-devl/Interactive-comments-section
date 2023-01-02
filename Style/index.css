@@ -324,8 +324,11 @@ main .comment_answer_container .comment_wrapper .comment .comment_footer .modifi
 main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper .comment_edit:hover .edit path {
   fill: hsl(239deg, 57%, 85%);
 }
-main .comment_answer_container .reply_container {
+main .comment_answer_container .replycontainer {
   display: none;
+}
+main .comment_answer_container .activate {
+  display: block;
 }
 
 /**********************************************************************/

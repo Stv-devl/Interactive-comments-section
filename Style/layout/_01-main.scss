@@ -239,8 +239,12 @@ main {
     }
 
     /********************reply container // intercat with JS********************/
-    .reply_container {
+    .replycontainer {
       display: none;
+    }
+
+    .activate {
+      display: block;
     }
   }
 }
