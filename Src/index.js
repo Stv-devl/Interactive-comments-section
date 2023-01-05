@@ -2,22 +2,21 @@
 const reply = document.querySelectorAll(".comment_reply");
 const replyContainer = document.querySelectorAll(".replycontainer");
 const answerContainer = document.querySelectorAll(".answer_container");
+let idNumber = 5;
 
 //local storage
 const LocalStorageList = "jsonStorage";
-let storageData = JSON.parse(localStorage.getItem(LocalStorageList));
+let storageData = JSON.parse(localStorage.getItem(LocalStorageList)) || [];
 
 console.log(storageData);
-
 // getData from Json files
 const getData = async () => {
   const response = await fetch(`data.json`);
   const data = await response.json();
-  saveToLocalstorage(data);
-  writeData(data);
+  if (localStorage.length == 0)
+    return localStorage.setItem(LocalStorageList, JSON.stringify(data));
+  else return writeData();
 };
-
-getData();
 
 //data from json
 function writeData() {
@@ -56,11 +55,6 @@ function writeData() {
   //jul for
 }
 
-//function addReplyData
-function writeReply() {
-  /*  return { id: id.toString(), name: input.value, completed: false };*/
-}
-
 //displayReply
 function displayReply(displayAnswer, displayId) {
   displayAnswer.innerHTML = `<div class="send_container">
@@ -86,11 +80,163 @@ function displayReply(displayAnswer, displayId) {
         element.parentElement.parentElement.parentElement.children[2];
       answerData.classList.add("active");
       displayAnswer.classList.remove("activate");
-      writeReply(inputData);
+
+      let getId = element.parentElement.parentElement.id;
+      console.log(getId);
+
+      writeReply(inputData, getId);
     });
   });
 }
 
+//function addReplyData
+function addContent01(inputData) {
+  return {
+    id: idNumber++,
+    content: `@amyrobson ${inputData}`,
+    createdAt: "Today",
+    score: 0,
+    replyingTo: "amyrobson",
+    user: {
+      image: {
+        png: "./images/avatars/image-juliusomo.png",
+        webp: "./images/avatars/image-juliusomo.webp",
+      },
+      username: "juliusomo",
+    },
+  };
+}
+
+function addContent02(inputData) {
+  return {
+    id: idNumber++,
+    content: `@maxblagun ${inputData}`,
+    createdAt: "today",
+    score: 0,
+    replyingTo: "maxblagun",
+    user: {
+      image: {
+        png: "./images/avatars/image-juliusomo.png",
+        webp: "./images/avatars/image-juliusomo.webp",
+      },
+      username: "juliusomo",
+    },
+  };
+}
+
+function addContent03(inputData) {
+  return {
+    id: idNumber++,
+    content: `@ramsesmiron ${inputData}`,
+    createdAt: "today",
+    score: 0,
+    replyingTo: "ramsesmiron",
+    user: {
+      image: {
+        png: "./images/avatars/image-juliusomo.png",
+        webp: "./images/avatars/image-juliusomo.webp",
+      },
+      username: "juliusomo",
+    },
+  };
+}
+
+function writeReply(inputData, getId) {
+  switch (getId) {
+    case (getId = "reply01"):
+      storageData.comments[0].replies.push(addContent01(inputData));
+      saveToLocalstorage();
+      break;
+    case (getId = "reply02"):
+      storageData.comments[1].replies.push(addContent02(inputData));
+      saveToLocalstorage();
+      break;
+    case (getId = "reply03"):
+      storageData.comments[1].replies.push(addContent03(inputData));
+      saveToLocalstorage();
+      break;
+  }
+}
+
+//html
+function answerHtml() {
+  `<div class="answer">
+  <div class="comment_wrapper">
+    <div class="comment">
+      <div class="counter_wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" class="comment_plus">
+          <path
+            d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z"
+            fill="#C5C6EF" /></svg>
+        <div class="comment_number" id="julScore"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="3" class="comment_minus">
+          <path
+            d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z"
+            fill="#C5C6EF" /></svg>
+      </div>
+      <div class="comment_body">
+        <div class="comment_header">
+          <div class="comment_profile">
+            <span id="julAvatar"></span>
+            <p class="profile_id" id="julId"></p>
+            <p class="you">you</p>
+            <p id="julDate"></p>
+          </div>
+          <div class="modification_wrapper">
+            <div class="comment_delete">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" class="delete">
+                <path
+                  d="M1.167 12.448c0 .854.7 1.552 1.555 1.552h6.222c.856 0 1.556-.698 1.556-1.552V3.5H1.167v8.948Zm10.5-11.281H8.75L7.773 0h-3.88l-.976 1.167H0v1.166h11.667V1.167Z"
+                  fill="#ED6368" /></svg>
+              <p class="text_delete">Delete</p>
+            </div>
+            <div class="comment_edit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" class="edit">
+                <path
+                  d="M13.479 2.872 11.08.474a1.75 1.75 0 0 0-2.327-.06L.879 8.287a1.75 1.75 0 0 0-.5 1.06l-.375 3.648a.875.875 0 0 0 .875.954h.078l3.65-.333c.399-.04.773-.216 1.058-.499l7.875-7.875a1.68 1.68 0 0 0-.061-2.371Zm-2.975 2.923L8.159 3.449 9.865 1.7l2.389 2.39-1.75 1.706Z"
+                  fill="#5357B6" /></svg>
+              <p class="text_edit">Edit</p>
+            </div>
+          </div>
+        </div>
+        <div id="julComment"></div>
+      </div>
+      <!-- answer 2 for media -->
+      <div class="comment_footer">
+        <div class="counter_wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" class="comment_plus">
+            <path
+              d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z"
+              fill="#C5C6EF" /></svg>
+          <div class="comment_number" id="julCommentMediaNbr"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="3" class="comment_minus">
+            <path
+              d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z"
+              fill="#C5C6EF" /></svg>
+        </div>
+        <div class="modification_wrapper">
+          <div class="comment_delete">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" class="delete">
+              <path
+                d="M1.167 12.448c0 .854.7 1.552 1.555 1.552h6.222c.856 0 1.556-.698 1.556-1.552V3.5H1.167v8.948Zm10.5-11.281H8.75L7.773 0h-3.88l-.976 1.167H0v1.166h11.667V1.167Z"
+                fill="#ED6368" /></svg>
+            <p class="text_delete">Delete</p>
+          </div>
+          <div class="comment_edit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" class="edit">
+              <path
+                d="M13.479 2.872 11.08.474a1.75 1.75 0 0 0-2.327-.06L.879 8.287a1.75 1.75 0 0 0-.5 1.06l-.375 3.648a.875.875 0 0 0 .875.954h.078l3.65-.333c.399-.04.773-.216 1.058-.499l7.875-7.875a1.68 1.68 0 0 0-.061-2.371Zm-2.975 2.923L8.159 3.449 9.865 1.7l2.389 2.39-1.75 1.706Z"
+                fill="#5357B6" /></svg>
+            <p class="text_edit">Edit</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`;
+
+  saveToLocalstorage();
+}
 //function addEditData
 function addEditData() {}
 
@@ -101,11 +247,14 @@ function deleteData() {}
 //like score
 
 /*************************************Save data to local storage************************************/
-function saveToLocalstorage(data) {
-  localStorage.setItem(LocalStorageList, JSON.stringify(data));
+function saveToLocalstorage() {
+  localStorage.setItem(LocalStorageList, JSON.stringify(storageData));
 }
 
 /*************************************AddEventListener************************************/
+
+//reload launch get data
+window.addEventListener("load", getData());
 
 //reply to comment button
 reply.forEach((element) => {
