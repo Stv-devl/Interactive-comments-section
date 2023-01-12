@@ -2,13 +2,13 @@
 const reply = document.querySelectorAll(".comment_reply");
 const replyContainer = document.querySelectorAll(".replycontainer");
 const answerContainer = document.querySelectorAll(".answer_container");
+const answerWrapper = document.querySelectorAll(".answer_wrapper");
 let idNumber = 5;
 
 //local storage
 const LocalStorageList = "jsonStorage";
 let storageData = JSON.parse(localStorage.getItem(LocalStorageList)) || [];
 
-console.log(storageData);
 // getData from Json files
 const getData = async () => {
   const response = await fetch(`data.json`);
@@ -20,6 +20,14 @@ const getData = async () => {
 
 //data from json
 function writeData() {
+  const avatarYou = document.querySelector(".avatar_you");
+  const profilIdYou = document.querySelector(".profile_id_you");
+  const dateYou = document.querySelector(".date_you");
+  const commentYou = document.querySelector(".comment_you");
+  const numberYou = document.querySelector(".number_you");
+  const commentNumberMediaYou = document.querySelector(
+    ".comment_number_media_you"
+  );
   //amy
   amyAvatar.style.backgroundImage = `url(${storageData.comments[0].user.image.png})`;
   commentAmy.textContent = storageData.comments[0].content;
@@ -45,14 +53,14 @@ function writeData() {
   //ram for media
   ramCommentMediaNbr.textContent = storageData.comments[1].replies[0].score;
   //jul (you)
-  julAvatar.style.backgroundImage = `url(${storageData.comments[1].replies[1].user.image.png})`;
-  julComment.innerHTML = `<p><span>@${storageData.comments[1].replies[1].replyingTo}</span> ${storageData.comments[1].replies[0].content}</p>`;
-  julDate.textContent = storageData.comments[1].replies[1].createdAt;
-  julId.textContent = storageData.comments[1].replies[1].user.username;
-  julScore.textContent = storageData.comments[1].replies[1].score;
+
+  avatarYou.style.backgroundImage = `url(${storageData.comments[1].replies[1].user.image.png})`;
+  commentYou.innerHTML = `<p><span>@${storageData.comments[1].replies[1].replyingTo}</span> ${storageData.comments[1].replies[0].content}</p>`;
+  dateYou.textContent = storageData.comments[1].replies[1].createdAt;
+  profilIdYou.textContent = storageData.comments[1].replies[1].user.username;
+  numberYou.textContent = storageData.comments[1].replies[1].score;
   //jul (you) for media
-  julCommentMediaNbr.textContent = storageData.comments[1].replies[1].score;
-  //jul for
+  commentNumberMediaYou.textContent = storageData.comments[1].replies[1].score;
 }
 
 //displayReply
@@ -82,9 +90,7 @@ function displayReply(displayAnswer, displayId) {
       displayAnswer.classList.remove("activate");
 
       let getId = element.parentElement.parentElement.id;
-      console.log(getId);
-
-      writeReply(inputData, getId);
+      writeReply(displayAnswer, inputData, getId);
     });
   });
 }
@@ -141,26 +147,32 @@ function addContent03(inputData) {
   };
 }
 
-function writeReply(inputData, getId) {
+function writeReply(displayAnswer, inputData, getId) {
   switch (getId) {
     case (getId = "reply01"):
       storageData.comments[0].replies.push(addContent01(inputData));
       saveToLocalstorage();
+      answerHtml(displayAnswer, inputData);
       break;
     case (getId = "reply02"):
       storageData.comments[1].replies.push(addContent02(inputData));
       saveToLocalstorage();
+      answerHtml(displayAnswer, inputData);
       break;
     case (getId = "reply03"):
       storageData.comments[1].replies.push(addContent03(inputData));
       saveToLocalstorage();
+      answerHtml(displayAnswer, inputData);
       break;
   }
 }
 
 //html
-function answerHtml() {
-  `<div class="answer">
+function answerHtml(displayAnswer, inputData) {
+  const addAnswerHtml = displayAnswer.parentElement.children[2].children[1];
+
+  addAnswerHtml.innerHTML += `          
+  <div class="answer">
   <div class="comment_wrapper">
     <div class="comment">
       <div class="counter_wrapper">
@@ -168,7 +180,7 @@ function answerHtml() {
           <path
             d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z"
             fill="#C5C6EF" /></svg>
-        <div class="comment_number" id="julScore"></div>
+        <div class="number_you"></div>
         <svg xmlns="http://www.w3.org/2000/svg" width="11" height="3" class="comment_minus">
           <path
             d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z"
@@ -177,10 +189,10 @@ function answerHtml() {
       <div class="comment_body">
         <div class="comment_header">
           <div class="comment_profile">
-            <span id="julAvatar"></span>
-            <p class="profile_id" id="julId"></p>
+            <span class="avatar_you"></span>
+            <p class="profile_id_you"></p>
             <p class="you">you</p>
-            <p id="julDate"></p>
+            <p class="date_you"></p>
           </div>
           <div class="modification_wrapper">
             <div class="comment_delete">
@@ -199,7 +211,7 @@ function answerHtml() {
             </div>
           </div>
         </div>
-        <div id="julComment"></div>
+        <div class="comment_you"></div>
       </div>
       <!-- answer 2 for media -->
       <div class="comment_footer">
@@ -208,7 +220,7 @@ function answerHtml() {
             <path
               d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z"
               fill="#C5C6EF" /></svg>
-          <div class="comment_number" id="julCommentMediaNbr"></div>
+          <div class="comment_number_media_you"></div>
           <svg xmlns="http://www.w3.org/2000/svg" width="11" height="3" class="comment_minus">
             <path
               d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z"
@@ -234,7 +246,7 @@ function answerHtml() {
     </div>
   </div>
 </div>`;
-
+  getData();
   saveToLocalstorage();
 }
 //function addEditData
