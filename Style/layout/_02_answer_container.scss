@@ -1,0 +1,162 @@
+.answer_container {
+  display: none;
+  justify-content: flex-end;
+  width: 730px;
+  height: 100%;
+  margin-top: 20px;
+
+  .border {
+    border-left: 2px solid $Lightgray;
+    margin-right: 43px;
+  }
+  .answer {
+    width: 88%;
+
+    .edit_container {
+      display: grid;
+      width: 100%;
+      height: 283px;
+      background-color: $White;
+      border-radius: 8px;
+      row-gap: 15px;
+      grid-template-columns: 10% 63% 29%;
+      grid-template-rows: 32px 124px 48px;
+      grid-template-areas:
+        "number_wrapper  profil_wrapper edit_wrapper"
+        "number_wrapper form form"
+        "button button button";
+      margin-top: 20px;
+      padding: 24px;
+
+      .number_wrapper {
+        grid-area: number_wrapper;
+        @include center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 40px;
+        height: 100px;
+        background-color: $Verylightgray;
+        border-radius: 10px;
+
+        .comment_plus,
+        .comment_minus {
+          cursor: pointer;
+
+          &:hover path {
+            fill: $Moderateblue;
+          }
+        }
+        .comment_minus {
+          cursor: pointer;
+
+          &:hover path {
+            fill: $Moderateblue;
+          }
+        }
+      }
+      .profil_wrapper {
+        grid-area: profil_wrapper;
+        grid-area: profil_wrapper;
+        @include row;
+        align-items: center;
+        gap: 16px;
+
+        img {
+          width: 32px;
+          height: 32px;
+          border-radius: 100%;
+          background-position: center;
+          background-size: 100%;
+        }
+
+        .you {
+          @include center;
+          width: 36px;
+          height: 19px;
+          background-color: $Moderateblue;
+          text-align: center;
+        }
+      }
+      .edit_wrapper {
+        grid-area: edit_wrapper;
+        align-items: center;
+        gap: 16px;
+
+        img {
+          width: 32px;
+          height: 32px;
+          border-radius: 100%;
+          background-position: center;
+          background-size: 100%;
+        }
+
+        .you {
+          @include center;
+          width: 36px;
+          height: 19px;
+          background-color: $Moderateblue;
+          text-align: center;
+        }
+      }
+      .reply_wrapper {
+        grid-area: reply_wrapper;
+      }
+      form {
+        grid-area: form;
+
+        textarea {
+          width: 530px;
+          height: 124px;
+          border-radius: 8px;
+          border: 1px solid $Lightgray;
+          color: $GrayishBlue;
+          padding: 12px 24px;
+          resize: none;
+          cursor: pointer;
+
+          /********************Media********************/
+          @media screen and (max-width: 770px) {
+            width: 311px;
+          }
+          /*********************************************/
+
+          &:hover {
+            border-color: $Moderateblue;
+          }
+        }
+      }
+      button {
+        grid-area: button;
+      }
+    }
+
+    .delete {
+      @include row;
+      gap: 8px;
+      cursor: pointer;
+
+      &:hover .text_delete {
+        color: $Palered;
+      }
+      &:hover .delete path {
+        fill: $Palered;
+      }
+    }
+    .edit_wrapper {
+      @include row;
+      gap: 15px;
+      .edit {
+        @include row;
+        gap: 8px;
+        cursor: pointer;
+
+        &:hover .text_edit {
+          color: $Lightgrayishblue;
+        }
+        &:hover .edit path {
+          fill: $Lightgrayishblue;
+        }
+      }
+    }
+  }
+}

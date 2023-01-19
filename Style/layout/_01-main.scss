@@ -16,235 +16,109 @@ main {
   }
   /*********************************************/
 
-  /********************Comment answer container********************/
-
-  .comment_answer_container {
-    width: 100%;
-
-    .comment_wrapper {
+  .comment_wrapper {
+    .comment {
+      display: grid;
       width: 100%;
-      height: 100%;
-      background-color: white;
+      height: 167px;
+      background-color: $White;
       border-radius: 8px;
-      margin-bottom: 20px;
+      grid-template-columns: 10% 65% 25%;
+      grid-template-rows: 32px 72px;
+      grid-template-areas:
+        "number_wrapper  profil_wrapper reply_wrapper"
+        "number_wrapper text_wrapper text_wrapper";
       padding: 24px;
+      margin-top: 20px;
 
-      /********************Media********************/
-      @media screen and (max-width: 770px) {
-        padding: 15px;
+      .number_wrapper {
+        grid-area: number_wrapper;
+        @include center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 40px;
+        height: 100px;
+        background-color: $Verylightgray;
+        border-radius: 10px;
+
+        .comment_plus,
+        .comment_minus {
+          cursor: pointer;
+
+          &:hover path {
+            fill: $Moderateblue;
+          }
+        }
+        .comment_minus {
+          cursor: pointer;
+
+          &:hover path {
+            fill: $Moderateblue;
+          }
+        }
       }
-      /*********************************************/
 
-      .comment {
+      .profil_wrapper {
+        grid-area: profil_wrapper;
         @include row;
         align-items: center;
-        gap: 24px;
+        gap: 16px;
 
-        /********************Media********************/
-        @media screen and (max-width: 770px) {
-          flex-direction: column;
-          gap: 16px;
+        img {
+          width: 32px;
+          height: 32px;
+          border-radius: 100%;
+          background-position: center;
+          background-size: 100%;
         }
-        /*********************************************/
-        .counter_wrapper {
+
+        .you {
           @include center;
-          flex-direction: column;
-          justify-content: space-evenly;
-          width: 40px;
-          height: 100px;
-          background-color: $Verylightgray;
-          border-radius: 10px;
+          width: 36px;
+          height: 19px;
+          background-color: $Moderateblue;
+          text-align: center;
+        }
+      }
+      .reply_wrapper {
+        grid-area: reply_wrapper;
+        @include row;
+        align-items: center;
+        justify-content: end;
+        gap: 8px;
+        cursor: pointer;
 
-          /********************Media********************/
-          @media screen and (max-width: 770px) {
-            display: none;
-          }
-          /*********************************************/
+        &:hover .text_reply {
+          color: $Lightgrayishblue;
+        }
+        &:hover .reply path {
+          fill: $Lightgrayishblue;
+        }
+      }
+      .text_wrapper {
+        grid-area: text_wrapper;
 
-          .comment_plus,
-          .comment_minus {
-            cursor: pointer;
+        .text {
+          line-height: 24px;
 
-            &:hover path {
-              fill: $Moderateblue;
-            }
+          span {
+            color: $Moderateblue;
+            font-weight: 500;
           }
         }
-        .comment_body {
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-          width: 100%;
-
-          .comment_header {
-            @include row;
-            justify-content: space-between;
-
-            .comment_profile {
-              @include row;
-              align-items: center;
-              gap: 16px;
-
-              span {
-                width: 32px;
-                height: 32px;
-                border-radius: 100%;
-                background-position: center;
-                background-size: 100%;
-              }
-
-              .you {
-                width: 36px;
-                height: 19px;
-                background-color: $Moderateblue;
-                text-align: center;
-              }
-            }
-
-            .modification_wrapper {
-              @include row;
-              gap: 24px;
-
-              .comment_delete {
-                @include row;
-                gap: 8px;
-                cursor: pointer;
-
-                &:hover .text_delete {
-                  color: $Palered;
-                }
-                &:hover .delete path {
-                  fill: $Palered;
-                }
-                /********************Media********************/
-                @media screen and (max-width: 770px) {
-                  display: none;
-                }
-                /*********************************************/
-              }
-              .comment_edit {
-                @include row;
-                gap: 8px;
-                cursor: pointer;
-
-                &:hover .text_edit {
-                  color: $Lightgrayishblue;
-                }
-                &:hover .edit path {
-                  fill: $Lightgrayishblue;
-                }
-                /********************Media********************/
-                @media screen and (max-width: 770px) {
-                  display: none;
-                }
-                /*********************************************/
-              }
-            }
-
-            .comment_reply {
-              @include row;
-              align-items: center;
-              gap: 8px;
-              cursor: pointer;
-
-              &:hover .text_reply {
-                color: $Lightgrayishblue;
-              }
-              &:hover .reply path {
-                fill: $Lightgrayishblue;
-              }
-              /********************Media********************/
-              @media screen and (max-width: 770px) {
-                display: none;
-              }
-              /*********************************************/
-            }
-          }
-          .text {
-            span {
-              color: $Moderateblue;
-              font-weight: 500;
-            }
-          }
-        }
-
-        /********************Comment footer (for change mobile style********************/
-        .comment_footer {
-          display: none;
-
-          /********************Media********************/
-          @media screen and (max-width: 770px) {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 100%;
-          }
-          /*********************************************/
-          .counter_wrapper {
-            @include row;
-            align-items: center;
-            justify-content: center;
-            justify-content: space-evenly;
-            width: 100px;
-            height: 40px;
-            border-radius: 15px;
-          }
-          .comment_reply {
-            @include row;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-
-            &:hover .text_reply {
-              color: $Lightgrayishblue;
-            }
-            &:hover .reply path {
-              fill: $Lightgrayishblue;
-            }
-          }
-          .modification_wrapper {
-            @include row;
-            align-items: center;
-            gap: 15px;
-
-            .comment_delete {
-              @include row;
-              gap: 8px;
-              cursor: pointer;
-
-              &:hover .text_delete {
-                color: $Palered;
-              }
-              &:hover .delete path {
-                fill: $Palered;
-              }
-            }
-            .comment_edit {
-              @include row;
-              gap: 8px;
-              cursor: pointer;
-
-              &:hover .text_edit {
-                color: $Lightgrayishblue;
-              }
-              &:hover .edit path {
-                fill: $Lightgrayishblue;
-              }
-            }
-          }
-        }
-
-        /************************************************************************/
       }
     }
+    /********************interact with js********************/
 
-    /********************reply container // intercat with JS********************/
-    .replycontainer {
+    .answerinactive {
       display: none;
     }
+    .active {
+      @include row;
+    }
 
-    .activate {
-      display: block;
+    .sendactive {
+      @include row;
     }
   }
 }

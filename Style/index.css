@@ -93,49 +93,29 @@ main {
   margin: 50px auto 0 auto;
   /********************Media********************/
   /*********************************************/
-  /********************Comment answer container********************/
 }
 @media screen and (max-width: 770px) {
   main {
     width: 343px;
   }
 }
-main .comment_answer_container {
-  width: 100%;
-  /********************reply container // intercat with JS********************/
+main .comment_wrapper {
+  /********************interact with js********************/
 }
-main .comment_answer_container .comment_wrapper {
+main .comment_wrapper .comment {
+  display: grid;
   width: 100%;
-  height: 100%;
-  background-color: white;
+  height: 167px;
+  background-color: hsl(0deg, 0%, 100%);
   border-radius: 8px;
-  margin-bottom: 20px;
+  grid-template-columns: 10% 65% 25%;
+  grid-template-rows: 32px 72px;
+  grid-template-areas: "number_wrapper  profil_wrapper reply_wrapper" "number_wrapper text_wrapper text_wrapper";
   padding: 24px;
-  /********************Media********************/
-  /*********************************************/
+  margin-top: 20px;
 }
-@media screen and (max-width: 770px) {
-  main .comment_answer_container .comment_wrapper {
-    padding: 15px;
-  }
-}
-main .comment_answer_container .comment_wrapper .comment {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 24px;
-  /********************Media********************/
-  /*********************************************/
-  /********************Comment footer (for change mobile style********************/
-  /************************************************************************/
-}
-@media screen and (max-width: 770px) {
-  main .comment_answer_container .comment_wrapper .comment {
-    flex-direction: column;
-    gap: 16px;
-  }
-}
-main .comment_answer_container .comment_wrapper .comment .counter_wrapper {
+main .comment_wrapper .comment .number_wrapper {
+  grid-area: number_wrapper;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,205 +125,250 @@ main .comment_answer_container .comment_wrapper .comment .counter_wrapper {
   height: 100px;
   background-color: hsl(228deg, 33%, 97%);
   border-radius: 10px;
-  /********************Media********************/
-  /*********************************************/
 }
-@media screen and (max-width: 770px) {
-  main .comment_answer_container .comment_wrapper .comment .counter_wrapper {
-    display: none;
-  }
-}
-main .comment_answer_container .comment_wrapper .comment .counter_wrapper .comment_plus,
-main .comment_answer_container .comment_wrapper .comment .counter_wrapper .comment_minus {
+main .comment_wrapper .comment .number_wrapper .comment_plus,
+main .comment_wrapper .comment .number_wrapper .comment_minus {
   cursor: pointer;
 }
-main .comment_answer_container .comment_wrapper .comment .counter_wrapper .comment_plus:hover path,
-main .comment_answer_container .comment_wrapper .comment .counter_wrapper .comment_minus:hover path {
+main .comment_wrapper .comment .number_wrapper .comment_plus:hover path,
+main .comment_wrapper .comment .number_wrapper .comment_minus:hover path {
   fill: hsl(238deg, 40%, 52%);
 }
-main .comment_answer_container .comment_wrapper .comment .comment_body {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
+main .comment_wrapper .comment .number_wrapper .comment_minus {
+  cursor: pointer;
 }
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+main .comment_wrapper .comment .number_wrapper .comment_minus:hover path {
+  fill: hsl(238deg, 40%, 52%);
 }
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .comment_profile {
+main .comment_wrapper .comment .profil_wrapper {
+  grid-area: profil_wrapper;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 16px;
 }
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .comment_profile span {
+main .comment_wrapper .comment .profil_wrapper img {
   width: 32px;
   height: 32px;
   border-radius: 100%;
   background-position: center;
   background-size: 100%;
 }
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .comment_profile .you {
+main .comment_wrapper .comment .profil_wrapper .you {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 36px;
   height: 19px;
   background-color: hsl(238deg, 40%, 52%);
   text-align: center;
 }
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .modification_wrapper {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-}
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .modification_wrapper .comment_delete {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  cursor: pointer;
-  /********************Media********************/
-  /*********************************************/
-}
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .modification_wrapper .comment_delete:hover .text_delete {
-  color: hsl(357deg, 100%, 86%);
-}
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .modification_wrapper .comment_delete:hover .delete path {
-  fill: hsl(357deg, 100%, 86%);
-}
-@media screen and (max-width: 770px) {
-  main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .modification_wrapper .comment_delete {
-    display: none;
-  }
-}
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .modification_wrapper .comment_edit {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  cursor: pointer;
-  /********************Media********************/
-  /*********************************************/
-}
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .modification_wrapper .comment_edit:hover .text_edit {
-  color: hsl(239deg, 57%, 85%);
-}
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .modification_wrapper .comment_edit:hover .edit path {
-  fill: hsl(239deg, 57%, 85%);
-}
-@media screen and (max-width: 770px) {
-  main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .modification_wrapper .comment_edit {
-    display: none;
-  }
-}
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .comment_reply {
+main .comment_wrapper .comment .reply_wrapper {
+  grid-area: reply_wrapper;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: end;
   gap: 8px;
   cursor: pointer;
-  /********************Media********************/
-  /*********************************************/
 }
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .comment_reply:hover .text_reply {
+main .comment_wrapper .comment .reply_wrapper:hover .text_reply {
   color: hsl(239deg, 57%, 85%);
 }
-main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .comment_reply:hover .reply path {
+main .comment_wrapper .comment .reply_wrapper:hover .reply path {
   fill: hsl(239deg, 57%, 85%);
 }
-@media screen and (max-width: 770px) {
-  main .comment_answer_container .comment_wrapper .comment .comment_body .comment_header .comment_reply {
-    display: none;
-  }
+main .comment_wrapper .comment .text_wrapper {
+  grid-area: text_wrapper;
 }
-main .comment_answer_container .comment_wrapper .comment .comment_body .text span {
+main .comment_wrapper .comment .text_wrapper .text {
+  line-height: 24px;
+}
+main .comment_wrapper .comment .text_wrapper .text span {
   color: hsl(238deg, 40%, 52%);
   font-weight: 500;
 }
-main .comment_answer_container .comment_wrapper .comment .comment_footer {
+main .comment_wrapper .answerinactive {
   display: none;
+}
+main .comment_wrapper .active {
+  display: flex;
+  flex-direction: row;
+}
+main .comment_wrapper .sendactive {
+  display: flex;
+  flex-direction: row;
+}
+
+.answer_container {
+  display: none;
+  justify-content: flex-end;
+  width: 730px;
+  height: 100%;
+  margin-top: 20px;
+}
+.answer_container .border {
+  border-left: 2px solid hsl(223deg, 19%, 93%);
+  margin-right: 43px;
+}
+.answer_container .answer {
+  width: 88%;
+}
+.answer_container .answer .edit_container {
+  display: grid;
+  width: 100%;
+  height: 283px;
+  background-color: hsl(0deg, 0%, 100%);
+  border-radius: 8px;
+  row-gap: 15px;
+  grid-template-columns: 10% 63% 29%;
+  grid-template-rows: 32px 124px 48px;
+  grid-template-areas: "number_wrapper  profil_wrapper edit_wrapper" "number_wrapper form form" "button button button";
+  margin-top: 20px;
+  padding: 24px;
+}
+.answer_container .answer .edit_container .number_wrapper {
+  grid-area: number_wrapper;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 40px;
+  height: 100px;
+  background-color: hsl(228deg, 33%, 97%);
+  border-radius: 10px;
+}
+.answer_container .answer .edit_container .number_wrapper .comment_plus,
+.answer_container .answer .edit_container .number_wrapper .comment_minus {
+  cursor: pointer;
+}
+.answer_container .answer .edit_container .number_wrapper .comment_plus:hover path,
+.answer_container .answer .edit_container .number_wrapper .comment_minus:hover path {
+  fill: hsl(238deg, 40%, 52%);
+}
+.answer_container .answer .edit_container .number_wrapper .comment_minus {
+  cursor: pointer;
+}
+.answer_container .answer .edit_container .number_wrapper .comment_minus:hover path {
+  fill: hsl(238deg, 40%, 52%);
+}
+.answer_container .answer .edit_container .profil_wrapper {
+  grid-area: profil_wrapper;
+  grid-area: profil_wrapper;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+.answer_container .answer .edit_container .profil_wrapper img {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  background-position: center;
+  background-size: 100%;
+}
+.answer_container .answer .edit_container .profil_wrapper .you {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 19px;
+  background-color: hsl(238deg, 40%, 52%);
+  text-align: center;
+}
+.answer_container .answer .edit_container .edit_wrapper {
+  grid-area: edit_wrapper;
+  align-items: center;
+  gap: 16px;
+}
+.answer_container .answer .edit_container .edit_wrapper img {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  background-position: center;
+  background-size: 100%;
+}
+.answer_container .answer .edit_container .edit_wrapper .you {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 19px;
+  background-color: hsl(238deg, 40%, 52%);
+  text-align: center;
+}
+.answer_container .answer .edit_container .reply_wrapper {
+  grid-area: reply_wrapper;
+}
+.answer_container .answer .edit_container form {
+  grid-area: form;
+}
+.answer_container .answer .edit_container form textarea {
+  width: 530px;
+  height: 124px;
+  border-radius: 8px;
+  border: 1px solid hsl(223deg, 19%, 93%);
+  color: hsl(211deg, 10%, 45%);
+  padding: 12px 24px;
+  resize: none;
+  cursor: pointer;
   /********************Media********************/
   /*********************************************/
 }
 @media screen and (max-width: 770px) {
-  main .comment_answer_container .comment_wrapper .comment .comment_footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+  .answer_container .answer .edit_container form textarea {
+    width: 311px;
   }
 }
-main .comment_answer_container .comment_wrapper .comment .comment_footer .counter_wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-evenly;
-  width: 100px;
-  height: 40px;
-  border-radius: 15px;
+.answer_container .answer .edit_container form textarea:hover {
+  border-color: hsl(238deg, 40%, 52%);
 }
-main .comment_answer_container .comment_wrapper .comment .comment_footer .comment_reply {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
+.answer_container .answer .edit_container button {
+  grid-area: button;
 }
-main .comment_answer_container .comment_wrapper .comment .comment_footer .comment_reply:hover .text_reply {
-  color: hsl(239deg, 57%, 85%);
-}
-main .comment_answer_container .comment_wrapper .comment .comment_footer .comment_reply:hover .reply path {
-  fill: hsl(239deg, 57%, 85%);
-}
-main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 15px;
-}
-main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper .comment_delete {
+.answer_container .answer .delete {
   display: flex;
   flex-direction: row;
   gap: 8px;
   cursor: pointer;
 }
-main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper .comment_delete:hover .text_delete {
+.answer_container .answer .delete:hover .text_delete {
   color: hsl(357deg, 100%, 86%);
 }
-main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper .comment_delete:hover .delete path {
+.answer_container .answer .delete:hover .delete path {
   fill: hsl(357deg, 100%, 86%);
 }
-main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper .comment_edit {
+.answer_container .answer .edit_wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.answer_container .answer .edit_wrapper .edit {
   display: flex;
   flex-direction: row;
   gap: 8px;
   cursor: pointer;
 }
-main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper .comment_edit:hover .text_edit {
+.answer_container .answer .edit_wrapper .edit:hover .text_edit {
   color: hsl(239deg, 57%, 85%);
 }
-main .comment_answer_container .comment_wrapper .comment .comment_footer .modification_wrapper .comment_edit:hover .edit path {
+.answer_container .answer .edit_wrapper .edit:hover .edit path {
   fill: hsl(239deg, 57%, 85%);
-}
-main .comment_answer_container .replycontainer {
-  display: none;
-}
-main .comment_answer_container .activate {
-  display: block;
 }
 
 /**********************************************************************/
 /*Reply container*/
 /**********************************************************************/
 .send_container {
-  display: flex;
-  flex-direction: row;
+  display: none;
   justify-content: space-around;
   gap: 15px;
   width: 100%;
   height: 100%;
   background-color: white;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-top: 20px;
   padding: 24px;
   /********************Media********************/
   /*******************************************/
@@ -395,46 +420,6 @@ main .comment_answer_container .activate {
 }
 .send_container textarea:hover {
   border-color: hsl(238deg, 40%, 52%);
-}
-
-/******************** answer container // intercat with JS********************/
-/*****************************************************************************/
-.answer_container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  width: 730px;
-  height: 100%;
-  /********************Media********************/
-  /*********************************************/
-}
-@media screen and (max-width: 770px) {
-  .answer_container {
-    justify-content: flex-start;
-    width: 343px;
-  }
-}
-.answer_container .border {
-  border-left: 2px solid hsl(223deg, 19%, 93%);
-  margin-right: 43px;
-  margin-bottom: 20px;
-  /********************Media********************/
-  /*********************************************/
-}
-@media screen and (max-width: 770px) {
-  .answer_container .border {
-    margin-right: 13px;
-  }
-}
-.answer_container .answer_wrapper {
-  width: 88%;
-  /********************Media********************/
-  /*********************************************/
-}
-@media screen and (max-width: 770px) {
-  .answer_container .answer_wrapper {
-    width: 100%;
-  }
 }
 
 /*****align footer and set size and color*****/
