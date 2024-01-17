@@ -1,0 +1,36 @@
+/***************************************************************/
+/*setting*/
+/***************************************************************/
+/*************************Setting page**************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  margin-block: 0;
+  outline: none;
+}
+
+body {
+  max-width: 1650px;
+  background-color: $white;
+}
+
+main {
+  padding-left: 117px;
+  padding-top: 91px;
+  width: 100%;
+  height: 100%;
+  max-width: 1650px;
+}
+
+/*************Text link & img fit***************/
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*************************breakup**************************/
+/*$breakup: 1318px;
+  $breakTablette: 1074px;*/
