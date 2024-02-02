@@ -1,9 +1,60 @@
 /****************************setting fonts***************************/
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
 
 /**************************setting text***************************/
 
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  color: $grayishBlue;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.like-number {
+  font-weight: 500;
+  color: $moderateBlue;
+}
+
+.profil-name {
+  font-weight: 500;
+  color: $darkBlue;
+}
+
+.isThisyou {
+  font-weight: 500;
+  font-size: 13px;
+  color: $white;
+}
+
+.writing-date {
+  font-weight: 400;
+}
+
+.reply {
+  font-weight: 500;
+  color: $moderateBlue;
+}
+
+input {
+  font-weight: 500;
+  color: $white;
+  text-transform: uppercase;
+}
+
+.delete {
+  font-weight: 500;
+  color: $softRed;
+}
+.oups {
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.error {
+  font-size: 288px;
+  font-weight: 700;
 }

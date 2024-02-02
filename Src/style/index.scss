@@ -1,4 +1,12 @@
 @import "./settings/colors";
-@import "./settings/mixins";
-@import "./settings/settings";
+@import "./settings/mixin";
+@import "./settings/setting";
 @import "./settings/fonts";
+@import "./settings/animation";
+@import "../components/comment/comment";
+@import "../components/likes/likes";
+@import "../components/profil/profil";
+@import "../components/actionBtn/actionBtn";
+@import "../components/post/post";
+@import "../components/loading/loading";
+@import "../components/error/error";

@@ -1,0 +1,23 @@
+.profil-container {
+  @include center-row-align;
+  gap: 8px;
+  margin-bottom: 14px;
+
+  .profil-image {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+  .isThisyou {
+    @include center-row;
+    width: 36px;
+    height: 19px;
+    background-color: $moderateBlue;
+    border-radius: 2px;
+    padding-bottom: 1px;
+  }
+
+  .writing-date {
+    margin-left: 8px;
+  }
+}

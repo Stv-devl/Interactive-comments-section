@@ -1,0 +1,19 @@
+.main-post {
+  margin-top: 20px;
+}
+
+.main-post,
+.reply-post {
+  @include commonPostStyles;
+  margin-bottom: 15px;
+}
+
+.main-post form textarea {
+  width: 506px;
+  height: 96px;
+}
+
+.reply-post form textarea {
+  width: 418px;
+  height: 96px;
+}

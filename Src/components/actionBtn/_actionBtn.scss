@@ -1,0 +1,42 @@
+.main-action {
+  position: absolute;
+  top: 26px;
+  right: 24px;
+}
+
+.reply-wrapper {
+  @include commonActionStyles;
+  @include hoverStyle($lightGrayishBlue);
+
+  .icon-reply {
+    font-size: 15px;
+  }
+  path,
+  .reply {
+    fill: $moderateBlue;
+    transition: 0.4s ease-in-out;
+  }
+}
+
+.user-action {
+  @include direction-row;
+  position: absolute;
+  gap: 22px;
+  top: 26px;
+  right: 24px;
+
+  .delete-wrapper {
+    @include commonActionStyles;
+    @include hoverStyle($paleRed);
+
+    path,
+    .delete {
+      fill: $softRed;
+      transition: 0.4s ease-in-out;
+    }
+
+    .icon-delete {
+      font-size: 15px;
+    }
+  }
+}

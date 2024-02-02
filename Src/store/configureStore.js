@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "../reducers";
 import { getUser } from "../actions/user.action";
-import { getComment } from "../actions/comment.action";
+import { getComments } from "../actions/comment.action";
 
 const store = configureStore({
   reducer: rootReducer,
@@ -9,6 +9,6 @@ const store = configureStore({
 });
 
 store.dispatch(getUser());
-store.dispatch(getComment());
+store.dispatch(getComments());
 
 export default store;
