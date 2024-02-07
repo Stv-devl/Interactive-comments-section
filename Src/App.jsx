@@ -41,9 +41,6 @@ const App = () => {
                         />
                       ))}
                   </div>
-                  {/*    {comment.replies.length > 0 && (
-                    <div className="reply-ligne"></div>
-              )}*/}
                 </div>
               ))}
             </div>

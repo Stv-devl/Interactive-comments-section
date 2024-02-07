@@ -9,10 +9,12 @@ import {
 } from "../../actions/comment.action";
 import Profil from "../profil/Profil";
 import ActionButtons from "../actionBtn/ActionBtn";
+import Modale from "../modale/Modale";
 
 const Comment = ({ data, isReply }) => {
   const { user } = useSelector((state) => state.userReducer);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [showReply, setShowReply] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editedComment, setEditedComment] = useState(data.content);
@@ -21,6 +23,12 @@ const Comment = ({ data, isReply }) => {
 
   const commentClass = isReply ? "reply-comment" : "main-comment";
   const isCurrentUser = data && user && data.user.username === user.username;
+  const replyTo = data.replyingTo || undefined;
+  const getReplyUserName = replyTo && `@${replyTo}`;
+
+  const closeModale = () => {
+    setIsModalOpen(false);
+  };
 
   const toggleEdit = useCallback(() => setIsEditing(!isEditing), [isEditing]);
   const toggleReply = useCallback(() => setShowReply(!showReply), [showReply]);
@@ -28,14 +36,14 @@ const Comment = ({ data, isReply }) => {
   const handleUpdate = useCallback(
     (e) => {
       e.preventDefault();
-      const replyTo = data.replyingTo || undefined;
+
       const updatedComment = { ...data, content: editedComment };
 
       dispatch(editComment(updatedComment, replyTo));
       dispatch(getComments());
       setIsEditing(false);
     },
-    [dispatch, data, editedComment]
+    [dispatch, data, replyTo, editedComment]
   );
 
   return (
@@ -53,19 +61,27 @@ const Comment = ({ data, isReply }) => {
           {isEditing ? (
             <form onSubmit={(e) => handleUpdate(e)}>
               <textarea
+                className="editingTextArea"
                 autoFocus={true}
-                defaultValue={data.content}
+                defaultValue={`${getReplyUserName && getReplyUserName} ${
+                  data.content
+                }`}
                 onChange={(e) => setEditedComment(e.target.value)}
               ></textarea>
-              <input type="submit" value="update" />
+              <input type="submit" value="update" className="updateBtn" />
             </form>
           ) : (
-            <p className="comment">{data.content}</p>
+            <p className="comment">
+              <span className="answerTo">
+                {getReplyUserName && getReplyUserName}{" "}
+              </span>
+              {data.content}
+            </p>
           )}
         </div>
         <ActionButtons
           isCurrentUser={isCurrentUser}
-          handleDelete={() => dispatch(deleteComment(data.id))}
+          setIsModalOpen={setIsModalOpen}
           handleToggleEdit={toggleEdit}
           handleToggleReply={toggleReply}
         />
@@ -75,6 +91,13 @@ const Comment = ({ data, isReply }) => {
           <Post isReplyingTo={data.user.username} commentId={data.id} />
         </div>
       )}
+      <div>
+        <Modale
+          modaleIsOpen={isModalOpen}
+          closeModale={closeModale}
+          handleDelete={() => dispatch(deleteComment(data.id))}
+        />
+      </div>
     </>
   );
 };

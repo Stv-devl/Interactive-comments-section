@@ -7,7 +7,7 @@
 * {
   font-family: "Rubik", sans-serif;
 }
-
+textarea,
 body {
   color: $grayishBlue;
   font-size: 16px;
@@ -33,7 +33,7 @@ body {
 .writing-date {
   font-weight: 400;
 }
-
+.answerTo,
 .reply {
   font-weight: 500;
   color: $moderateBlue;
@@ -57,4 +57,15 @@ input {
 .error {
   font-size: 288px;
   font-weight: 700;
+}
+
+.modale-desc {
+  font-size: 16px;
+}
+
+.isNo,
+.isYes {
+  text-transform: uppercase;
+  color: $white;
+  font-weight: 500;
 }

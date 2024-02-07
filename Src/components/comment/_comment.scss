@@ -15,6 +15,22 @@
     padding: 24px 24px 24px 24px;
     background-color: $white;
     border-radius: 8px;
+
+    form {
+      @include column-flex-end;
+
+      .editingTextArea {
+        width: 100%;
+        height: 124px;
+        resize: none;
+        border-radius: 8px;
+        border: 1px solid $lightGrey;
+      }
+      .updateBtn {
+        @include button;
+        margin-top: 12px;
+      }
+    }
   }
 }
 .answer-container {
@@ -25,9 +41,7 @@
 }
 
 .active {
-  display: flex;
-  flex-direction: column;
-  align-content: flex-end;
+  @include column-flex-end;
   border-left: 2px solid $lightGrey;
   padding-left: 44px;
 }

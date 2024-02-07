@@ -54,7 +54,11 @@ const Post = ({ isReplyingTo, commentId }) => {
             className="user-icone-post"
           />
           <form ref={form} onSubmit={handleForm}>
-            <textarea placeholder="Add a comment..."></textarea>
+            <textarea
+              placeholder={
+                isReplyingTo ? `@${isReplyingTo},` : "Add a comment..."
+              }
+            ></textarea>
             <input type="submit" value="Send" />
           </form>
         </div>

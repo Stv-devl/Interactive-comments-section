@@ -3,7 +3,7 @@ import { faPen, faReply, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ActionButtons = ({
   isCurrentUser,
-  handleDelete,
+  setIsModalOpen,
   handleToggleEdit,
   handleToggleReply,
 }) => {
@@ -12,7 +12,7 @@ const ActionButtons = ({
   return (
     <div className={`${actionClass} action-container`}>
       {isCurrentUser && (
-        <div className="delete-wrapper" onClick={handleDelete}>
+        <div className="delete-wrapper" onClick={() => setIsModalOpen(true)}>
           <FontAwesomeIcon icon={faTrash} className="icon-delete" />
           <p className="delete">Delete</p>
         </div>

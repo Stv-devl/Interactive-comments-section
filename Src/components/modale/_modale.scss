@@ -8,4 +8,39 @@
   left: 0px;
   background: rgba(154, 153, 153, 0.7);
   margin: 0 auto;
+
+  .modal-wrapper {
+    @include direction-column;
+    width: 400px;
+    height: 252px;
+    background-color: $white;
+    padding: 32px;
+
+    .modale-desc {
+      margin: 22px 0 22px 0;
+    }
+
+    .btn-wrapper {
+      @include direction-row;
+      gap: 14px;
+
+      .isYes,
+      .isNo {
+        @include button-modale;
+      }
+
+      .isYes {
+        background-color: $softRed;
+        &:hover {
+          background-color: $paleRed;
+        }
+      }
+      .isNo {
+        background-color: $grayishBlue;
+        &:hover {
+          background-color: $darkGrey;
+        }
+      }
+    }
+  }
 }
