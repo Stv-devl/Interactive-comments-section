@@ -22,7 +22,7 @@ const Likes = ({ data }) => {
   };
 
   return (
-    <>
+    <div className="like-container">
       {user && (
         <>
           <svg
@@ -64,7 +64,7 @@ const Likes = ({ data }) => {
           </svg>
         </>
       )}
-    </>
+    </div>
   );
 };
 

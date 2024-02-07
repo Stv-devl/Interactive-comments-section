@@ -19,24 +19,7 @@
         },
         "username": "amyrobson"
       },
-      "replies": [
-        {
-          "id": "11",
-          "content": "mlkjmlkjmlkj",
-          "createdAt": "Today",
-          "score": 0,
-          "replyingTo": "amyrobson",
-          "user": {
-            "image": {
-              "png": "./images/avatars/image-juliusomo.png",
-              "webp": "./images/avatars/image-juliusomo.webp"
-            },
-            "username": "juliusomo"
-          },
-          "replies": [],
-          "userHasLiked": false
-        }
-      ],
+      "replies": [],
       "userHasLiked": false
     },
     {
@@ -84,13 +67,29 @@
             }
           ],
           "userHasLiked": true
+        },
+        {
+          "id": "17",
+          "content": "@ramsesmiron mlkjmlkjllkjlmkjh",
+          "createdAt": "Today",
+          "score": 0,
+          "replyingTo": "ramsesmiron",
+          "user": {
+            "image": {
+              "png": "./images/avatars/image-juliusomo.png",
+              "webp": "./images/avatars/image-juliusomo.webp"
+            },
+            "username": "juliusomo"
+          },
+          "replies": [],
+          "userHasLiked": false
         }
       ],
       "userHasLiked": false
     },
     {
       "id": "10",
-      "content": "mlkjmlkjlk",
+      "content": "undefined mlkjmlkjlk",
       "createdAt": "Today",
       "score": 0,
       "replyingTo": null,

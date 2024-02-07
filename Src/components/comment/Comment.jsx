@@ -10,48 +10,43 @@ import {
 import Profil from "../profil/Profil";
 import ActionButtons from "../actionBtn/ActionBtn";
 import Modale from "../modale/Modale";
+import Edit from "../edit/Edit";
+import Content from "../content/Content";
 
 const Comment = ({ data, isReply }) => {
   const { user } = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showReply, setShowReply] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [editedComment, setEditedComment] = useState(data.content);
 
-  const dispatch = useDispatch();
-
-  const commentClass = isReply ? "reply-comment" : "main-comment";
   const isCurrentUser = data && user && data.user.username === user.username;
   const replyTo = data.replyingTo || undefined;
   const getReplyUserName = replyTo && `@${replyTo}`;
 
-  const closeModale = () => {
-    setIsModalOpen(false);
-  };
-
-  const toggleEdit = useCallback(() => setIsEditing(!isEditing), [isEditing]);
-  const toggleReply = useCallback(() => setShowReply(!showReply), [showReply]);
-
-  const handleUpdate = useCallback(
-    (e) => {
-      e.preventDefault();
-
-      const updatedComment = { ...data, content: editedComment };
+  const updatedComment = useCallback(
+    (newComment) => {
+      const updatedComment = { ...data, content: newComment };
 
       dispatch(editComment(updatedComment, replyTo));
       dispatch(getComments());
       setIsEditing(false);
     },
-    [dispatch, data, replyTo, editedComment]
+    [dispatch, data, replyTo]
   );
 
   return (
     <>
-      <div className={`${commentClass} comment-wrapper`}>
-        <div className="like-container">
-          <Likes data={data} key={`like-${data.id}`} />
-        </div>
+      <div
+        className={
+          isReply
+            ? "reply-comment comment-wrapper"
+            : "main-comment comment-wrapper"
+        }
+      >
+        <Likes data={data} key={`like-${data.id}`} />
+
         <div className="card-wrapper">
           <Profil
             user={data.user}
@@ -59,45 +54,30 @@ const Comment = ({ data, isReply }) => {
             isCurrentUser={isCurrentUser}
           />
           {isEditing ? (
-            <form onSubmit={(e) => handleUpdate(e)}>
-              <textarea
-                className="editingTextArea"
-                autoFocus={true}
-                defaultValue={`${getReplyUserName && getReplyUserName} ${
-                  data.content
-                }`}
-                onChange={(e) => setEditedComment(e.target.value)}
-              ></textarea>
-              <input type="submit" value="update" className="updateBtn" />
-            </form>
+            <Edit
+              defaultValue={`${getReplyUserName} ${data.content}`}
+              onSave={updatedComment}
+            />
           ) : (
-            <p className="comment">
-              <span className="answerTo">
-                {getReplyUserName && getReplyUserName}{" "}
-              </span>
-              {data.content}
-            </p>
+            <Content content={data.content} replyTo={getReplyUserName} />
           )}
         </div>
         <ActionButtons
           isCurrentUser={isCurrentUser}
           setIsModalOpen={setIsModalOpen}
-          handleToggleEdit={toggleEdit}
-          handleToggleReply={toggleReply}
+          handleToggleEdit={() => setIsEditing(!isEditing)}
+          handleToggleReply={() => setShowReply(!showReply)}
         />
       </div>
       {showReply && !isCurrentUser && (
-        <div className="reply-container">
-          <Post isReplyingTo={data.user.username} commentId={data.id} />
-        </div>
+        <Post isReplyingTo={data.user.username} commentId={data.id} />
       )}
-      <div>
+      {isModalOpen && (
         <Modale
-          modaleIsOpen={isModalOpen}
-          closeModale={closeModale}
-          handleDelete={() => dispatch(deleteComment(data.id))}
+          closeModale={() => setIsModalOpen(false)}
+          deleteComment={() => dispatch(deleteComment(data.id))}
         />
-      </div>
+      )}
     </>
   );
 };
