@@ -1,21 +1,12 @@
-import React from "react";
 import Comment from "../comment/Comment";
-import Loading from "../loading/Loading";
-import Error from "../error/Error";
 import { useSelector } from "react-redux";
 
 const CommentContainer = () => {
-  const { comments, loading, error } = useSelector(
-    (state) => state.commentReducer
-  );
+  const { comments } = useSelector((state) => state.commentReducer);
 
   return (
     <div className="containers">
-      {loading && <Loading />}
-      {error && <Error message={error} />}
-      {!loading &&
-        !error &&
-        comments.length > 0 &&
+      {comments.length > 0 &&
         comments.map((comment) => (
           <div
             className="comment-container"

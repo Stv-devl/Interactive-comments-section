@@ -1,0 +1,29 @@
+.containers {
+  @include center-column;
+  .comment-container {
+    width: 730px;
+    margin-top: 20px;
+    @media screen and (max-width: $breakUpMobile) {
+      width: 343px;
+    }
+  }
+  .answer-container {
+    display: none;
+    height: 100%;
+    gap: 10px;
+    margin: 10px 0px 10px 44px;
+    @media screen and (max-width: $breakUpMobile) {
+      margin-left: 0px;
+    }
+  }
+
+  .active {
+    @include column-flex-end;
+    border-left: 2px solid $lightGrey;
+    padding-left: 44px;
+
+    @media screen and (max-width: $breakUpMobile) {
+      padding-left: 16px;
+    }
+  }
+}

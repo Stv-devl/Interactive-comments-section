@@ -8,7 +8,7 @@ const Post = ({ isReplyingTo, commentId }) => {
   const form = useRef();
   const dispatch = useDispatch();
 
-  const postClass = isReplyingTo ? "reply-post" : "main-post";
+  const postClass = isReplyingTo === "ramsesmiron" ? "reply-post" : "main-post";
 
   const handleLastId = () => {
     const getAllIds = (items) =>

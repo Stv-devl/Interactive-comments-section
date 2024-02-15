@@ -6,12 +6,25 @@
   border-radius: 10px;
   padding: 12px 0 16px 0;
 
-  .like-icone path {
-    cursor: pointer;
-    fill: #c5c6ef;
-    transition: 0.5s ease-in-out;
+  @media screen and (max-width: $breakUpMobile) {
+    display: flex;
+    flex-direction: row;
+    width: 100px;
+    height: 40px;
+    padding: 0 12px 0 16px;
+  }
 
-    &:hover {
+  .like-wrapper {
+    cursor: pointer;
+
+    .like-icone {
+      path {
+        fill: #c5c6ef;
+        @include transition;
+      }
+    }
+
+    &:hover .like-icone path {
       fill: $moderateBlue;
     }
   }

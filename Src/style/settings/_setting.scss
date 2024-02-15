@@ -18,12 +18,7 @@ body {
   background-color: $veryLightGrey;
 }
 
-main {
-  width: 100%;
-  height: 100%;
-}
-
-/*************Text link & img fit***************/
+/*******************Text link & img fit**********************/
 a,
 a:visited {
   text-decoration: none;
@@ -31,4 +26,4 @@ a:visited {
 }
 
 /*************************breakup**************************/
-$breakUpMobile: 375px;
+$breakUpMobile: 700px;
