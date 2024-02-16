@@ -1,5 +1,5 @@
-.main-comment {
-  margin-bottom: 20px;
+.reply-comment {
+  margin-top: 10px;
 }
 
 .comment-wrapper {
@@ -13,9 +13,10 @@
   border-radius: 8px;
 
   @media screen and (max-width: $breakUpMobile) {
-    grid-template-columns: 75% 25%;
-    grid-template-rows: 80% 20%;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 75% 20%;
     row-gap: 10px;
+    padding: 16px;
 
     grid-template-areas:
       "card card"

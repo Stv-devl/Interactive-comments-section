@@ -1,10 +1,16 @@
+.action-container {
+  display: block;
+  @media screen and (max-width: $breakUpMobile) {
+    margin-top: 9px;
+  }
+}
+
 .main-action {
   position: absolute;
   top: 26px;
   right: 24px;
 
   @media screen and (max-width: $breakUpMobile) {
-    position: inherit;
     top: 0;
     right: 0;
   }
@@ -13,9 +19,6 @@
 .reply-wrapper {
   @include commonActionStyles;
   @include hoverStyle($lightGrayishBlue);
-  @media screen and (max-width: $breakUpMobile) {
-    margin-top: 7px;
-  }
 
   .icon-reply {
     font-size: 15px;
@@ -33,6 +36,11 @@
   gap: 22px;
   top: 26px;
   right: 24px;
+  @media screen and (max-width: $breakUpMobile) {
+    top: 0px;
+    right: 0px;
+    gap: 16px;
+  }
 
   .delete-wrapper {
     @include commonActionStyles;

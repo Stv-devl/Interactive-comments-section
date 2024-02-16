@@ -2,7 +2,7 @@
   @include center-column;
   .comment-container {
     width: 730px;
-    margin-top: 20px;
+    margin-top: 15px;
     @media screen and (max-width: $breakUpMobile) {
       width: 343px;
     }

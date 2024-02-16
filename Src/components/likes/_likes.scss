@@ -5,16 +5,15 @@
   background-color: $veryLightGrey;
   border-radius: 10px;
   padding: 12px 0 16px 0;
-
   @media screen and (max-width: $breakUpMobile) {
-    display: flex;
-    flex-direction: row;
+    @include direction-row;
     width: 100px;
     height: 40px;
-    padding: 0 12px 0 16px;
+    padding: 0 16px 0 16px;
   }
 
   .like-wrapper {
+    display: flex;
     cursor: pointer;
 
     .like-icone {
