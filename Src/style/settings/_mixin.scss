@@ -129,7 +129,6 @@
 
 @mixin commonPostStyles {
   @include center-row-align-start;
-
   gap: 16px;
   width: 100%;
   height: 100%;
@@ -139,11 +138,21 @@
 
   .user-icone-post {
     width: 40px;
+    @media screen and (max-width: $breakUpMobile) {
+      position: relative;
+      top: 110px;
+    }
   }
 
   form {
     @include direction-row;
     gap: 14px;
+    @media screen and (max-width: $breakUpMobile) {
+      flex-direction: column;
+      align-items: flex-end;
+      position: relative;
+      top: -50px;
+    }
 
     textarea {
       border-radius: 8px;

@@ -6,14 +6,24 @@
 .reply-post {
   @include commonPostStyles;
   margin-bottom: 15px;
+  @media screen and (max-width: $breakUpMobile) {
+    display: block;
+    height: 189px;
+  }
 }
 
 .main-post form textarea {
   width: 506px;
   height: 96px;
+  @media screen and (max-width: $breakUpMobile) {
+    width: 296px;
+  }
 }
 
 .reply-post form textarea {
   width: 418px;
   height: 96px;
+  @media screen and (max-width: $breakUpMobile) {
+    width: 278px;
+  }
 }

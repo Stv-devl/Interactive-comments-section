@@ -55,8 +55,9 @@ const Comment = ({ data, isReply }) => {
           />
           {isEditing ? (
             <Edit
-              defaultValue={`${getReplyUserName} ${data.content}`}
+              defaultValue={data.content}
               onSave={updatedComment}
+              replyTo={getReplyUserName}
             />
           ) : (
             <Content content={data.content} replyTo={getReplyUserName} />

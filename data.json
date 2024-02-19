@@ -70,7 +70,7 @@
         },
         {
           "id": "9",
-          "content": "I couldn’t agree more with this. Everything moves so fast and it always seems like everyone knows the newest library framework. But the fundamentals are what stay constant.",
+          "content": "I couldn’t agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant. ",
           "createdAt": "Today",
           "score": 0,
           "replyingTo": "ramsesmiron",
@@ -86,6 +86,22 @@
         }
       ],
       "userHasLiked": true
+    },
+    {
+      "id": "10",
+      "content": "  I would like to ask you some questions about a new project. ",
+      "createdAt": "Today",
+      "score": 0,
+      "replyingTo": null,
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      },
+      "replies": [],
+      "userHasLiked": false
     }
   ]
 }

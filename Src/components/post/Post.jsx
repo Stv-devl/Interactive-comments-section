@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addComment, getComments } from "../../actions/comment.action";
+import { deleteUserName } from "../../utils/deleteUserName";
 
 const Post = ({ isReplyingTo, commentId }) => {
   const { user } = useSelector((state) => state.userReducer);
@@ -24,7 +25,7 @@ const Post = ({ isReplyingTo, commentId }) => {
 
     const userReply = {
       id: String(parseInt(handleLastId(), 10) + 1),
-      content: form.current[0].value,
+      content: deleteUserName(form.current[0].value, `@${isReplyingTo}`),
       createdAt: "Today",
       score: 0,
       replyingTo: isReplyingTo ? isReplyingTo : null,
@@ -55,10 +56,10 @@ const Post = ({ isReplyingTo, commentId }) => {
           />
           <form ref={form} onSubmit={handleForm}>
             <textarea
-              placeholder={
-                isReplyingTo ? `@${isReplyingTo},` : "Add a comment..."
-              }
+              placeholder={isReplyingTo ? "" : "Add a comment..."}
+              defaultValue={isReplyingTo ? `@${isReplyingTo}` : null}
             ></textarea>
+
             <input type="submit" value="Send" />
           </form>
         </div>
