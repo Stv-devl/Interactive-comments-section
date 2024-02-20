@@ -1,5 +1,5 @@
 const jsonServer = require("json-server");
-
+require("dotenv").config();
 const server = jsonServer.create();
 const router = jsonServer.router("data.json");
 const middlewares = jsonServer.defaults();
